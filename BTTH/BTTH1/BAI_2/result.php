@@ -3,7 +3,9 @@ include 'connect.php';
 
 // Lấy danh sách đáp án đúng
 $sql = "SELECT id, answer FROM questions";
-$result = $conn->query($sql);
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
 
 $answers = [];
 while ($row = $result->fetch_assoc()) {

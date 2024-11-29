@@ -1,9 +1,12 @@
 <?php
-include 'connect.php'; // Kết nối CSDL
+include 'connect.php';
 
-// Lấy dữ liệu từ bảng questions
+
 $sql = "SELECT * FROM questions";
-$result = $conn->query($sql);
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     $questions = $result->fetch_all(MYSQLI_ASSOC); // Lưu tất cả câu hỏi vào mảng
