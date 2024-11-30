@@ -13,6 +13,9 @@
 <body>
     <div class="container mt-5">
         <h1 class="text-center mb-4">Danh sách các loài hoa</h1>
+        <div class="text-end mb-3">
+            <a href="admin.php" class="btn btn-primary">Quản lý Admin</a>
+        </div>
         <div class="row">
             <?php
             $sql = "SELECT * FROM flowers";

@@ -3,14 +3,12 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Kiểm tra xem dữ liệu có được gửi đi không
     if (isset($_POST['name']) && isset($_POST['description']) && isset($_FILES['image'])) {
         $name = $_POST['name'];
         $description = $_POST['description'];
         $image = $_FILES['image']['name'];
         $imagePath = "images/" . $image;
 
-        // Kiểm tra tệp có được tải lên không
         if (move_uploaded_file($_FILES['image']['tmp_name'], $imagePath)) {
             $sql = "INSERT INTO flowers (name, description, image_path) VALUES ('$name', '$description', '$imagePath')";
             if ($conn->query($sql) === TRUE) {
@@ -60,6 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <input type="file" class="form-control" id="image" name="image" required>
                             </div>
                             <button type="submit" class="btn btn-success">Thêm</button>
+                            <a href="admin.php" class="btn btn-secondary">Hủy</a>
                         </form>
                     </div>
                 </div>

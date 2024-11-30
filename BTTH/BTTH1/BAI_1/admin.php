@@ -43,7 +43,7 @@
                             <img src="<?php echo $row['image_path']; ?>" alt="<?php echo $row['name']; ?>" style="width: 100px; height: auto;">
                         </td>
                         <td><a href="edit.php?edit_id=<?php echo $row['id']; ?>" class="text-primary "><i class="bi bi-pencil-square"></i></a></td>
-                        <td><a href="delete.php?delete_id=<?php echo $row['id']; ?>" class="text-primary"><i class="bi bi-trash-fill"></i></a></td>
+                        <td><a href="delete.php?delete_id=<?php echo $row['id']; ?>" class="text-primary" onclick="return confirm('Bạn có chắc chắn muốn xóa hoa này?');"><i class="bi bi-trash-fill"></i></a></td>
                     </tr>
                 <?php
                 }
